@@ -157,7 +157,7 @@ class MsgPackSerializer(StringSerializer):
         return msgpack.dumps(value)
 
     @classmethod
-    def loads(cls, value):
+    def loads(cls, value, use_list=False):
         """
         Deserialize value using ``msgpack.loads``.
 
@@ -166,4 +166,4 @@ class MsgPackSerializer(StringSerializer):
         """
         if value is None:
             return None
-        return msgpack.loads(value, encoding=cls.encoding)
+        return msgpack.loads(value, use_list=use_list)
